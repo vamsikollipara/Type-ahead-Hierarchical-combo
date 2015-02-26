@@ -1,0 +1,94 @@
+.divComboTree {
+	display: block;
+}
+
+.divComboTree:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+.keyString {
+	float: left;
+}
+
+.dropArrowHolder {
+	height: 11px;
+	width: 11px;
+	padding: 5px;
+	float: left;
+	background-color: #B3B3B3;	
+}
+
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #000;
+	margin: 3px 5px 0px 0px;
+	float: left;
+	cursor: pointer;
+}
+
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #000;
+	margin: 3px 5px 0px 0px;
+	float: left;
+	cursor: pointer;
+}
+
+.arrow-right {
+	width: 0; 
+	height: 0; 
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid #000;
+	margin: 3px 5px 0px 0px;
+	float: left;
+	cursor: pointer;
+}
+
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent; 
+	border-right:5px solid #000; 
+	margin: 3px 5px 0px 0px;
+	float: left;
+	cursor: pointer;
+}
+
+.comboParent {
+	float: left;
+	cursor: pointer;
+	width: 100%;
+}
+
+.suggestionContainer {
+	position : absolute; 
+	box-shadow: 5px 15px 5px #888888; 
+	border : 1px solid #CCCCCC; 
+	padding: 10px;
+	cursor: pointer;
+}
+
+.suggestionItem {
+	display: inline-block;
+	width: 100%;
+}
+
+.hover {
+	background-color: #BACCDD;
+	width: 100%;
+}
+
+.children {
+	margin-top : 0px;
+	margin-bottom: 0px;
+}

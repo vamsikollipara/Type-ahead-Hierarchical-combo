@@ -1,0 +1,66 @@
+<html>
+	<head> 
+		<title>A sample of Divami Combotree component</title>
+		<script type="text/javascript" src="DivComboTree.js"></script>
+		<link rel="stylesheet" type="text/css" href="DivComboTreeStyles.css">
+	</head>
+	<body>
+		<h2> Divami Combotree Component</h2>
+		<div id="container" style="height:25px;"></div>
+	
+		<script type="text/javascript">
+			var comboTreeComp = new DivComboTree({
+				combo : {
+					renderTo : "container",
+					width: 250
+				},
+				events: {
+					select : function() {
+						console.log("item selected in combo")
+					}
+				},
+				options : {
+					typeAhead : true,
+				},
+				data: [{
+					"name" : "Kenseo",
+					"id" : 102,
+					"hasChildren" : true,
+					"children" : [{
+						"name" : "CreateRequest",
+						"id" : 1
+					},{
+						"name" : "Dashboard",
+						"id" : 2
+					},{
+						"name" : "Toolkit",
+						"id" : 3
+					},]
+
+				},{
+					"name" : "Nestor",
+					"id" : 103,
+					"hasChildren" : true,
+					"children" : [{
+						"name" : "Dashboard",
+						"id" : 1
+					},{
+						"name" : "Timesheet",
+						"id" : 2
+					},{
+						"name" : "Reports",
+						"id" : 3
+					},{
+						"name" : "Admin",
+						"id" : 4
+					},{
+						"name" : "Invoice",
+						"id" : 5
+					}]
+
+				}]
+
+			});
+		</script>
+	</body>
+<html>
