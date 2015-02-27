@@ -1,0 +1,54 @@
+.comboTree{
+	display: inline-block;
+	position: relative;
+}
+
+.suggestionsContainer{
+	position: absolute;
+	width: 100%;
+	cursor: pointer;
+}
+.comboTree ul, .comboTree li{
+	padding: 0;
+	margin: 0;
+}
+
+.comboTree ul li li{
+	padding-left: 20px;
+}
+.comboTree div > span{
+	display: inline-block;
+	height: 20px;
+	vertical-align: top;
+}
+.comboTree div > span:first-child{
+	width: 20px;
+	float: left;
+}
+
+.comboTree div > span:first-child + span{
+	background-color: green;
+	display: block;
+	margin-left: 20px;
+}
+
+.hideArrow{
+	background-color: yellow;
+}
+
+.collapseArrow{
+	background-color: red;
+}
+
+.expandArrow{
+	background-color: orange;
+}
+
+.suggestionsContainer{
+	display: none;
+}
+
+.active{
+	background-color: #acacac;
+	color: white;
+}

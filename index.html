@@ -1,10 +1,11 @@
 <html>
 	<head> 
 		<title>A sample of Combotree component</title>
-		<!-- <script type="text/javascript" src="DivComboTree.js"></script> -->
+		<!-- <script type="text/javascript" src="assets/DivComboTree.js"></script> -->
+		<!-- <link rel="stylesheet" type="text/css" href="assets/DivComboTreeStyles.css"> -->
 		<script type="text/javascript" src="assets/jquery.js"></script>
 		<script type="text/javascript" src="assets/divcombotree.jquery.js"></script>
-		<link rel="stylesheet" type="text/css" href="assets/DivComboTreeStyles.css">
+		<link rel="stylesheet" type="text/css" href="assets/DivComboTreeStyles.jquery.css">
 	</head>
 	<body>
 		<h2>Combotree Component</h2>
@@ -12,15 +13,54 @@
 	
 		<script type="text/javascript">
 			var container = document.getElementById('container');
-	 		new DivComboTree(container, [{
-					"name" : "Project One",
-					"id" : 102,
-					"children" : [{"name": "One Feature"},{"name":"Two Feature"},{"name":"Three Feature"}]
-				},{
-					"name" : "Project Two",
-					"id" : 103,
-					"children" : [{"name":"Four Feature"},{"name":"Five Feature"},{"name":"Six Feature"},{"name":"Seven Feature"},{"name":"Eight Feature"}]
-				}]);
+	 		new DivComboTree(container, 
+	 			[
+				    {
+				        "name": "Project One",
+				        "id": 102,
+				        "children": [
+				            {
+				                "name": "One Feature",
+				                "id": 1
+				            },
+				            {
+				                "name": "Two Feature",
+				                "id": 2
+				            },
+				            {
+				                "name": "Three Feature",
+				                "id": 3
+				            }
+				        ]
+				    },
+				    {
+				        "name": "Project Two",
+				        "id": 103,
+				        "children": [
+				            {
+				                "name": "Four Feature",
+				                "id": 1
+				            },
+				            {
+				                "name": "Five Feature",
+				                "id": 2
+				            },
+				            {
+				                "name": "Six Feature",
+				                "id": 3
+				            },
+				            {
+				                "name": "Seven Feature",
+				                "id": 4
+				            },
+				            {
+				                "name": "Eight Feature",
+				                "id": 5
+				            }
+				        ]
+				    }
+				]
+ 			);
 		</script>
 	</body>
 <html>

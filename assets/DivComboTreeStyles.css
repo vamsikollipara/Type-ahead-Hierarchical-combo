@@ -1,54 +1,94 @@
-.comboTree{
-	display: inline-block;
-	position: relative;
+.divComboTree {
+	display: block;
 }
 
-.suggestionsContainer{
-	position: absolute;
-	width: 100%;
-	cursor: pointer;
-}
-.comboTree ul, .comboTree li{
-	padding: 0;
-	margin: 0;
+.divComboTree:after {
+	content: '';
+	clear: both;
+	display: block;
 }
 
-.comboTree ul li li{
-	padding-left: 20px;
-}
-.comboTree div > span{
-	display: inline-block;
-	height: 20px;
-	vertical-align: top;
-}
-.comboTree div > span:first-child{
-	width: 20px;
+.keyString {
 	float: left;
 }
 
-.comboTree div > span:first-child + span{
-	background-color: green;
-	display: block;
-	margin-left: 20px;
+.dropArrowHolder {
+	height: 11px;
+	width: 11px;
+	padding: 5px;
+	float: left;
+	background-color: #B3B3B3;	
 }
 
-.hideArrow{
-	background-color: yellow;
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #000;
+	margin: 3px 5px 0px 0px;
+	float: left;
+	cursor: pointer;
 }
 
-.collapseArrow{
-	background-color: red;
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #000;
+	margin: 3px 5px 0px 0px;
+	float: left;
+	cursor: pointer;
 }
 
-.expandArrow{
-	background-color: orange;
+.arrow-right {
+	width: 0; 
+	height: 0; 
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid #000;
+	margin: 3px 5px 0px 0px;
+	float: left;
+	cursor: pointer;
 }
 
-.suggestionsContainer{
-	display: none;
+.arrow-left {
+	width: 0; 
+	height: 0; 
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent; 
+	border-right:5px solid #000; 
+	margin: 3px 5px 0px 0px;
+	float: left;
+	cursor: pointer;
 }
 
-.active{
-	background-color: #acacac;
-	color: white;
+.comboParent {
+	float: left;
+	cursor: pointer;
+	width: 100%;
+}
+
+.suggestionContainer {
+	position : absolute; 
+	box-shadow: 5px 15px 5px #888888; 
+	border : 1px solid #CCCCCC; 
+	padding: 10px;
+	cursor: pointer;
+}
+
+.suggestionItem {
+	display: inline-block;
+	width: 100%;
+}
+
+.hover {
+	background-color: #BACCDD;
+	width: 100%;
+}
+
+.children {
+	margin-top : 0px;
+	margin-bottom: 0px;
 }

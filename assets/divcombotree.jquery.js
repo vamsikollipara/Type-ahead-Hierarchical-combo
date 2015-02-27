@@ -7,7 +7,7 @@ var DivComboTree = function(elem, suggestions) {
 		suggestionsContainerClass = ".suggestionsContainer";
 
 	$(elem).addClass('comboTree');
-	function hideChildItems(e){
+	function toggleChildItems(e){
 		var el = $(e.currentTarget);
 
 		if(el.hasClass('collapseArrow')){
@@ -206,7 +206,7 @@ var DivComboTree = function(elem, suggestions) {
 				}
 				if(!project.excludeParent){
 					//event
-					spanArrow.onclick = hideChildItems;					
+					spanArrow.onclick = toggleChildItems;					
 					spanProjectName.innerHTML = project.name;
 					projectHeadingWrapper.setAttribute('data-id', project.id);
 
