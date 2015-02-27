@@ -5,6 +5,8 @@
 var DivComboTree = function(elem, suggestions) {
 	var code = {up: 38, down: 40},
 		suggestionsContainerClass = ".suggestionsContainer";
+
+	$(elem).addClass('comboTree');
 	function hideChildItems(e){
 		var el = $(e.currentTarget);
 

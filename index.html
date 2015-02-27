@@ -1,66 +1,26 @@
 <html>
 	<head> 
-		<title>A sample of Divami Combotree component</title>
-		<script type="text/javascript" src="DivComboTree.js"></script>
-		<link rel="stylesheet" type="text/css" href="DivComboTreeStyles.css">
+		<title>A sample of Combotree component</title>
+		<!-- <script type="text/javascript" src="DivComboTree.js"></script> -->
+		<script type="text/javascript" src="assets/jquery.js"></script>
+		<script type="text/javascript" src="assets/divcombotree.jquery.js"></script>
+		<link rel="stylesheet" type="text/css" href="assets/DivComboTreeStyles.css">
 	</head>
 	<body>
-		<h2> Divami Combotree Component</h2>
+		<h2>Combotree Component</h2>
 		<div id="container" style="height:25px;"></div>
 	
 		<script type="text/javascript">
-			var comboTreeComp = new DivComboTree({
-				combo : {
-					renderTo : "container",
-					width: 250
-				},
-				events: {
-					select : function() {
-						console.log("item selected in combo")
-					}
-				},
-				options : {
-					typeAhead : true,
-				},
-				data: [{
-					"name" : "Kenseo",
+			var container = document.getElementById('container');
+	 		new DivComboTree(container, [{
+					"name" : "Project One",
 					"id" : 102,
-					"hasChildren" : true,
-					"children" : [{
-						"name" : "CreateRequest",
-						"id" : 1
-					},{
-						"name" : "Dashboard",
-						"id" : 2
-					},{
-						"name" : "Toolkit",
-						"id" : 3
-					},]
-
+					"children" : [{"name": "One Feature"},{"name":"Two Feature"},{"name":"Three Feature"}]
 				},{
-					"name" : "Nestor",
+					"name" : "Project Two",
 					"id" : 103,
-					"hasChildren" : true,
-					"children" : [{
-						"name" : "Dashboard",
-						"id" : 1
-					},{
-						"name" : "Timesheet",
-						"id" : 2
-					},{
-						"name" : "Reports",
-						"id" : 3
-					},{
-						"name" : "Admin",
-						"id" : 4
-					},{
-						"name" : "Invoice",
-						"id" : 5
-					}]
-
-				}]
-
-			});
+					"children" : [{"name":"Four Feature"},{"name":"Five Feature"},{"name":"Six Feature"},{"name":"Seven Feature"},{"name":"Eight Feature"}]
+				}]);
 		</script>
 	</body>
 <html>
