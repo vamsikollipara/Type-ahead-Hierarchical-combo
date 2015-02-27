@@ -1,6 +1,6 @@
 /**
   * This is a Type-ahead Hierarchical combo tree component
-  * @author VK
+  * @author Venkateshwar
   */
 var DivComboTree = function(elem, suggestions) {
 	var code = {up: 38, down: 40},
