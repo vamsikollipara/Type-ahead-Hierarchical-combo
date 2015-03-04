@@ -27,7 +27,9 @@ var DivComboTree = function(elem, suggestions, values) {
 	//events
 	// This section is to make sure that when the user clicks on outside of the suggestions box
 	// The suggestion box will hide.
-	document.onclick = hideSuggestions;
+	document.onclick = function(){
+		hideSuggestions(true);
+	}
 	$elem.click(function(e){
 		e.stopPropagation();
 	});
@@ -101,7 +103,7 @@ var DivComboTree = function(elem, suggestions, values) {
 			text.val(el.html());
 		}
 		else if(el[0].tagName.toLowerCase() === "div"){
-			text.val(el.children.eq(1).html());
+			text.val(el.children().eq(1).html());
 		}
 		else{
 			text.val(el.parents('li').children('div').children('span').eq(1).html() + ":" + el.html());
@@ -126,9 +128,11 @@ var DivComboTree = function(elem, suggestions, values) {
 	 * hideSuggestions: Hides the suggestions
 	 * @noparams
 	 */
-	function hideSuggestions(){
+	function hideSuggestions(dontFocus){
 		$elem.find(suggestionsContainerClass).hide();
-		focusInputTextBox();
+		if(!dontFocus){
+			focusInputTextBox();
+		}
 	}
 
 	/*
@@ -154,7 +158,7 @@ var DivComboTree = function(elem, suggestions, values) {
 
 			if(active.length){
 
-				var selectables = $elem.find(dot + values.selectable);
+				var selectables = $elem.find(dot + values.listClass);
 
 				for(var i = 0; i < selectables.length; i++){
 					var s = selectables.eq(i);
@@ -171,7 +175,7 @@ var DivComboTree = function(elem, suggestions, values) {
 				}
 			}
 			else{
-				$elem.find(dot + values.selectable).last().addClass(values.hoveredElement);
+				$elem.find(dot + values.listClass).last().addClass(values.hoveredElement);
 			}
 		}
 		// 'DOWN' key pressed
@@ -180,7 +184,7 @@ var DivComboTree = function(elem, suggestions, values) {
 
 			if(active.length){
 
-				var selectables = $elem.find(dot + values.selectable);
+				var selectables = $elem.find(dot + values.listClass);
 
 				for(var i = 0; i < selectables.length; i++){
 					var s = selectables.eq(i);
@@ -197,12 +201,18 @@ var DivComboTree = function(elem, suggestions, values) {
 				}
 			}
 			else{
-				$elem.find(dot + values.selectable).first().addClass(values.hoveredElement);
+				$elem.find(dot + values.listClass).first().addClass(values.hoveredElement);
 			}
 		}
 		// 'ENTER' Key pressed
 		else if(code.enter === keyCode){
-			insertData(e);
+			var $active = $elem.find(dot + values.listClass + dot + values.hoveredElement);
+			if($active.length && $active.is(':visible')){
+				insertData($active);
+			}
+			else{
+				showSuggestions();
+			}
 		}
 		// For other key pressed, just filter the suggestions.
 		else{
@@ -293,7 +303,7 @@ var DivComboTree = function(elem, suggestions, values) {
 				projectHeadingWrapper.appendChild(spanArrow);
 				projectHeadingWrapper.appendChild(spanProjectName);
 
-				projectHeadingWrapper.className = values.selectable;
+				projectHeadingWrapper.className = values.listClass;
 
 				var li = document.createElement('li');
 				li.appendChild(projectHeadingWrapper);
@@ -337,7 +347,7 @@ var DivComboTree = function(elem, suggestions, values) {
 								subLi.onclick = insertData;
 								subLi.onmouseover = makeActive;
 
-								subLi.className = values.selectable;
+								subLi.className = values.listClass;
 							}
 						}
 						li.appendChild(subUl);
