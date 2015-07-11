@@ -1,3 +1,21 @@
+body{
+	text-align: center;
+}
+#container {
+	text-align: left;
+	padding-top: 10%;
+}
+#container input[type="text"]{
+	padding: 10px;
+	border-radius: 3px;
+	border: 1px solid #e1e1e1;
+	height: 50px;
+	width: 350px;
+}
+.combo-wrapper{
+	display: inline-block;
+	vertical-align: middle;
+}
 .comboTree{
 	display: inline-block;
 	position: relative;
@@ -7,6 +25,8 @@
 	position: absolute;
 	width: 100%;
 	cursor: pointer;
+	max-height: 200px;
+	overflow: auto;
 }
 .comboTree ul, .comboTree li{
 	padding: 0;
@@ -14,34 +34,63 @@
 }
 
 .comboTree ul li li{
-	padding-left: 20px;
+	padding: 10px;
+	padding-left: 40px;
+	background-color: cornflowerblue;
+}
+.comboTree ul li li:hover{
+	background-color: firebrick;
 }
 .comboTree div > span{
 	display: inline-block;
-	height: 20px;
+	height: 50px;
 	vertical-align: top;
 }
 .comboTree div > span:first-child{
-	width: 20px;
+	width: 35px;
 	float: left;
 }
 
 .comboTree div > span:first-child + span{
-	background-color: green;
-	display: block;
-	margin-left: 20px;
+	background-color: tomato;
+  display: block;
+  margin-left: 35px;
+  line-height: 50px;
+  padding-left: 5px;
 }
-
+.comboTree div:hover > span:first-child{
+	box-shadow: inset 0px 0px 5px skyblue;
+}
+.comboTree div:hover > span:first-child + span{
+	background-color: beige;
+	color: #666;
+}
 .hideArrow{
 	background-color: yellow;
 }
 
 .collapseArrow{
 	background-color: red;
+	position: relative;
 }
-
+.collapseArrow::before, .expandArrow::before{
+	content: "";
+	border-width: 10px;
+	border-style: solid;
+	position: absolute;
+	right: 50%;
+	bottom: 50%;
+	transform: translate(50%,50%);
+}
+.collapseArrow::before{
+		border-color: blue transparent transparent transparent;
+}
 .expandArrow{
 	background-color: orange;
+	position: relative;
+}
+.expandArrow::before{
+	border-color: transparent transparent transparent green;
 }
 
 .suggestionsContainer{

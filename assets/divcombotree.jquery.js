@@ -35,10 +35,10 @@ var DivComboTree = function(elem, suggestions, values) {
 	});
 	// <-- End of Hide section -->
 
-	/*
-	 * toggleChildItems: It is used to show or hide the child items 
-	 * Code Explanation: 'excludeChildren' flag is used to show or hide the child items 
-	 * @param: 'e' represents the event
+	/**
+	 * It is used to show or hide the child items. 'excludeChildren' flag is used to show or hide the child items
+	 * @constructor
+	 * @param {object} e - represents the event or jquery element object.
 	 */
 	function toggleChildItems(e){
 		var el = $(e.currentTarget);
@@ -52,11 +52,10 @@ var DivComboTree = function(elem, suggestions, values) {
 		$elem.find('input').focus();
 	}
 
-	/*
-	 * collapseItems: It is used to hide the child items
-	 * @param: 'el' --> jquery dom object: Holds the clicked parent list item
-	 * Code explanation: Makes the flag, 'excludeChildren' true. To hide the child items
-	 * and then renders the new list again
+	/**
+	 * It is used to hide the child items Makes the flag, 'excludeChildren' true. To hide the child items and then renders the new list again
+	 * @constructor
+	 * @param: {object} el - Holds the clicked parent list item
 	 */
 	function collapseItems(el){
 		var refId = el.parent().data('id');
@@ -69,11 +68,9 @@ var DivComboTree = function(elem, suggestions, values) {
 		renderSuggestions(elem, suggestions);
 	}
 
-	/*
-	 * expandItems: It is used to show the child items
-	 * @param: 'el' --> jquery dom object: Holds the clicked parent list item
-	 * Code explanation: Makes the flag, 'excludeChildren' false. To show the child items
-	 * and then renders the new list again
+	/**
+	 * It is used to show the child items Makes the flag, 'excludeChildren' false. To show the child items and then renders the new list again
+	 * @param {object} el - Holds the clicked parent list item
 	 */
 	function expandItems(el){
 		var refId = el.parent().data('id');
@@ -90,11 +87,10 @@ var DivComboTree = function(elem, suggestions, values) {
 		}
 	}
 
-	/*
-	 * insertData: Inserts the clicked list item's data in to the textbox
-	 * @param: Here 'e' could be the event or the jquery dom element object itself.
-	 * Code explanation: Here the code checks 
-	 * whether the clicked list item is parent item or parent item with no children or child item.
+	/**
+	 * Inserts the clicked list item's data in to the textbox. Here the code checks whether the clicked list item is parent item or parent item with no children or child item.
+	 * @constructor
+	 * @param {object} e - could be the event or the jquery dom element object itself.
 	 */
 	function insertData(e){
 		var el = $(e.currentTarget || e);
@@ -111,9 +107,10 @@ var DivComboTree = function(elem, suggestions, values) {
 		hideSuggestions();
 	}
 
-	/*
-	 * showSuggestions: Shows the suggestions
-	 * @noparams
+	/**
+	 * Shows the suggestions
+	 * @constructor
+	 * @param {object} e - event
 	 */
 	function showSuggestions(e){
 		if($elem.find(suggestionsContainerClass).css('display') !== 'none'){
@@ -124,9 +121,10 @@ var DivComboTree = function(elem, suggestions, values) {
 		}
 		$elem.find(suggestionsContainerClass).show();
 	}
-	/*
-	 * hideSuggestions: Hides the suggestions
-	 * @noparams
+	/**
+	 * Hides the suggestions
+	 * @constructor
+	 * @param {boolean} dontFocus - This will be true if the textbox shouldn't be focussed.
 	 */
 	function hideSuggestions(dontFocus){
 		$elem.find(suggestionsContainerClass).hide();
@@ -136,18 +134,19 @@ var DivComboTree = function(elem, suggestions, values) {
 	}
 
 	/*
-	 * focusInputTextBox: Focuses the textBox
-	 * @noparams
+	 * Focuses the textBox
+	 * @constructor
 	 */
 	function focusInputTextBox(){
 		$elem.find('input').focus();
 	}
 
-	/*
-	 * keyOperations: Triggers whenever user press a keyboard key.
-	 * @param: 'e' represents key pressed event.
-	 * Code explanation: Handles keys to navigate the items up or down and 
+	/**
+	 * Triggers whenever user presses a keyboard key.
+	 * <br><b>Code explanation:</b> Handles keys to navigate the items up or down and 
 	 * when pressed 'Enter', the selected item will be added to the textbox.
+	 * @constructor
+	 * @param {object} e - represents key pressed event.
 	 */
 	function keyOperations(e){
 		var keyCode = e.keyCode || e.which;
@@ -221,7 +220,8 @@ var DivComboTree = function(elem, suggestions, values) {
 	}
 
 	/*
-	 * makeActive: styles the hovered item (parent or child).
+	 * Styles the hovered item (parent or child).
+	 * @constructor
 	 * @param: 'e' represents the Mouse hovered event
 	 */
 	function makeActive(e){
@@ -230,12 +230,13 @@ var DivComboTree = function(elem, suggestions, values) {
 		el.addClass(values.hoveredElement);
 	}
 
-	/*
-	 * filterSuggestions: Filters the suggestions based on the entered text in textbox.
-	 * @param: 'el' represent jquery dom element object.
-	 * Code explanation: 'query' represents textbox value (with no colon)
+	/**
+	 * Filters the suggestions based on the entered text in textbox.
+	 * <br><b>Code explanation:</b> 'query' represents textbox value (with no colon)
 	 * 'queryString' represents parent item textbox value (before colon)
 	 * 'subQuery' represents child item's textbox value (after colon)
+	 * @constructor
+	 * @param {object} el - represent jquery dom element object.
 	 */
 	function filterSuggestions(el){
 		showSuggestions();
@@ -284,12 +285,13 @@ var DivComboTree = function(elem, suggestions, values) {
 		renderSuggestions(elem, suggestions);
 	}
 
-	/*
-	 * renderSuggestions: Renders the suggestions dynamically when user shows/hides the child items
-	 * or when user press any key (by focussing on input textbox)
-	 * @params: 'el' represents the element in which the suggestions are to be rendered.
+	/**
+	 * Renders the suggestions dynamically when user shows/hides the child items
+	 * or when user press any key (by focussing on input textbox).
 	 * 'list' represents the object data holding all parent items and child items with initialized flags:
 	 * 'excludeParent', 'excludeChildren' and 'excludeChild' flags.
+	 * @constructor
+	 * @param {object} el - represents the element in which the suggestions are to be rendered.
 	 */
 	function renderSuggestions(el, list, textBox){
 		if(list.length){
@@ -363,7 +365,6 @@ var DivComboTree = function(elem, suggestions, values) {
 
 				//event
 				textBox.onclick = showSuggestions;
-				// textBox.onblur = hideSuggestions;
 				textBox.onkeyup = keyOperations;
 
 				var suggestionsContainer = document.createElement('div');

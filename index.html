@@ -1,19 +1,19 @@
 <html>
-	<head> 
-		<title>A sample of Combotree component</title>
-		<!-- <script type="text/javascript" src="assets/DivComboTree.js"></script> -->
-		<!-- <link rel="stylesheet" type="text/css" href="assets/DivComboTreeStyles.css"> -->
+	<head>
+		<title>Typeahead hierarchical combobox</title>
+		<link rel="stylesheet" type="text/css" href="assets/DivComboTreeStyles.jquery.css">
 		<script type="text/javascript" src="assets/jquery.js"></script>
 		<script type="text/javascript" src="assets/divcombotree.jquery.js"></script>
-		<link rel="stylesheet" type="text/css" href="assets/DivComboTreeStyles.jquery.css">
 	</head>
 	<body>
-		<h2>Combotree Component</h2>
-		<div id="container" style="height:25px;"></div>
-	
+		<div class="combo-wrapper">
+			<h2>Typeahead hierarchical combobox</h2>
+			<div id="container" style="height:25px;"></div>
+		</div>
+
 		<script type="text/javascript">
 			var container = document.getElementById('container');
-	 		new DivComboTree(container, 
+	 		new DivComboTree(container,
 	 			[
 				    {
 				        "name": "Project One",
